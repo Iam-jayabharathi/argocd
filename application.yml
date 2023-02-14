@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/Iam-jayabharathi/argocd.git
+    path: kubernetes/
+    targetRevision: HEAD
+    helm:
+      values: |
+        image:
+          repository: nginx
+          tag: latest
