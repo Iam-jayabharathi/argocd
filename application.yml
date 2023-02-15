@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hello-world
+  name: myapplication
 spec:
   destination:
     namespace: default
