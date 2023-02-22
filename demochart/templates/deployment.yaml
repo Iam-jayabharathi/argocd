@@ -15,4 +15,11 @@ spec:
       containers: 
       - name: demo-cont 
         image: teaimg
-        imagePullPolicy: Never 
+        imagePullPolicy: Never
+        ports:
+          - containerPort: {{ .Values.service.targetport }}
+        readinessProbe:
+          periodSeconds: 25
+          initialDelaySeconds: 5
+          tcpSocket:
+            port: {{ .Values.service.targetport }} 

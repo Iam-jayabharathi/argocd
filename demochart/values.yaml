@@ -26,4 +26,4 @@ service:
 
 restartPolicy: Always
 secretname: aximdemosecret-tls
-hostname: noc.aximsoft.com
+hostname: hello.aximsoft.com
