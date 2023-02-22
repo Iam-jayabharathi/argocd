@@ -16,14 +16,3 @@ spec:
       - name: demo-cont 
         image: teaimg
         imagePullPolicy: Never 
-        args:
-        - /bin/sh
-        - -c
-        - touch argo; sleep 25; rm -f argo; sleep 500
-      livenessProbe:
-        exec:
-          command:
-            - cat
-            - argo
-        initialDelaySeconds: 5
-        periodSeconds: 5
