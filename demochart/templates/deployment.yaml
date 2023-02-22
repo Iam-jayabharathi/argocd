@@ -23,3 +23,8 @@ spec:
           initialDelaySeconds: 5
           tcpSocket:
             port: {{ .Values.service.targetport }} 
+        livenessProbe:
+          periodSeconds: 25
+          initialDelaySeconds: 5
+          tcpSocket:
+            port: {{ .Values.service.targetport }} 
