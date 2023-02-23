@@ -20,7 +20,7 @@ spec:
           - containerPort: {{ .Values.service.targetport }}
         readinessProbe:
           periodSeconds: 25
-          initialDelaySeconds: 40
+          initialDelaySeconds: 100
           tcpSocket:
             port: {{ .Values.service.targetport }} 
         livenessProbe:
