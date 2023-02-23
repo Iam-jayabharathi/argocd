@@ -22,7 +22,7 @@ maxUnavailable: 0
 
 service:
   port: 80
-  targetport: 3002
+  targetport: 3000
 
 restartPolicy: Always
 secretname: aximdemosecret-tls
