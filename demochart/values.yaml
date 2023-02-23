@@ -9,7 +9,7 @@ new:
   tag: d0b4a43a1180
 
 new2:  
-  image2: teaimg
+  image2: myimg
   pullPolicy: Never
   tag: d0b4a43a1189
 
