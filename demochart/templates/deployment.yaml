@@ -14,13 +14,13 @@ spec:
     spec: 
       containers: 
       - name: demo-cont 
-        image: teaimg
+        image: myimg
         imagePullPolicy: Never
         ports:
           - containerPort: {{ .Values.service.targetport }}
         readinessProbe:
           periodSeconds: 25
-          initialDelaySeconds: 50
+          initialDelaySeconds: 25
           timeoutSeconds: 2
           tcpSocket:
             port: {{ .Values.service.targetport }} 
