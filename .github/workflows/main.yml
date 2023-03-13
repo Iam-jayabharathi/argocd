@@ -1,4 +1,4 @@
-name: myargoapplication
+name: argocd
 on:
   push:
     branches: [ master ]
@@ -36,7 +36,7 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . --network=host
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        cd /home/aximsoft/aximsoft/GCP/actions-runner/_work/argocd/demochart
+        cd /home/aximsoft/aximsoft/GCP/actions-runner
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
         TAG=$(cat ./argocd/demochart/values.yaml |  grep tag: | awk '{print $2}')
