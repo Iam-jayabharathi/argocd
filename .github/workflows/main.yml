@@ -51,7 +51,7 @@ jobs:
         github_token: ${{ secrets.mygit_token }}
         repository: iam-jayabharathi/argocd 
         branch: master
-        directory: /home/aximsoft/aximsoft/GCP/actions-runner/_work/
+        directory: /home/aximsoft/aximsoft/GCP/actions-runner/_work/argocd/demochart/demochart/values.yaml
         
         
         
