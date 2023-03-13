@@ -4,7 +4,7 @@ on:
     branches: [ master ]
 jobs:
   argocd:
-    runs-on: argocd-runner
+    runs-on: self-hosted
     steps:
     - name: Check out code
       uses: actions/checkout@v2
