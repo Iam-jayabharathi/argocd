@@ -14,8 +14,8 @@ spec:
     spec: 
       containers: 
       - name: demo-cont 
-        image: teaimg
-        imagePullPolicy: Never
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}" 
+        imagePullPolicy: {{ .Values.image.pullPolicy }} 
         ports:
           - containerPort: {{ .Values.service.targetport }}
         readinessProbe:
