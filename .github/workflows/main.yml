@@ -4,7 +4,7 @@ on:
     branches: [ master ]
 jobs:
   argocd:
-    runs-on: ubuntu-latest
+    runs-on: argocd-runner
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . --network=host
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        cd /home/runner/work/_temp/9a7ac7de-8a95-4ae8-9119-cbe799f1a35a.sh
+        cd /home/aximsoft/aximsoft/GCP/actions-runner/_work/argocd/demochart
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
         TAG=$(cat ./argocd/demochart/values.yaml |  grep tag: | awk '{print $2}')
