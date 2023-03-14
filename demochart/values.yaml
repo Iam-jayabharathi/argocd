@@ -3,6 +3,11 @@ namespace: default
 replicas: 1
 version: v1
 
+image:
+  repository: 281600030161.dkr.ecr.us-east-1.amazonaws.com/argocd-test
+  pullPolicy: IfNotPresent
+  tag: 9df1a8947d084b1e0ced164d6b6e0f34cc7d3dbe
+
 new:
   image: myimg
   pullPolicy: Never
