@@ -36,12 +36,11 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo
-        git checkout master                
+        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo                      
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
         TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')                
-        `sed -i "s/$TAG/$IMAGE_TAG/" ./demochart/values.yaml`        
+        sed -i "s+$TAG+$IMAGE_TAG+" ./demochart/values.yaml        
         git status
         git add ./demochart/values.yaml
         git status
