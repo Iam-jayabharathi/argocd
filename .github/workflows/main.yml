@@ -21,7 +21,7 @@ jobs:
       with: 
         repository: iam-jayabharathi/argocd 
         token: ${{ secrets.MYGIT_TOKEN }} 
-        path: demochart
+        path: argocd
         ref: master
         
     - name: Login to Amazon ECR
