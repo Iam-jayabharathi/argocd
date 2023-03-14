@@ -36,12 +36,12 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . --network=host
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        cd /home/aximsoft/aximsoft/minikube/argocd/demochart
+        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/demochart
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
-        TAG=$(cat ./values.yaml |  grep tag: | awk '{print $2}')
-        sed -i 's/$TAG/$IMAGE_TAG/' ./values.yaml
-        git add ./values.yaml
+        TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')
+        sed -i 's/$TAG/$IMAGE_TAG/' ./demochart/values.yaml
+        git add ./demochart/values.yaml
         git commit -m "Docker image tag updated for noc.aximsoft.com - $IMAGE_TAG "
         
         
@@ -51,4 +51,4 @@ jobs:
         github_token: ${{ secrets.MYGIT_TOKEN }}
         repository: iam-jayabharathi/argocd 
         branch: master
-        directory: /home/aximsoft/aximsoft/minikube/argocd/demochart
+        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/demochart
