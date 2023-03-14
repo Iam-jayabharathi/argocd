@@ -34,7 +34,7 @@ jobs:
         ECR_REPOSITORY: argocd-test
         IMAGE_TAG: ${{ github.sha }}  
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . --network=host
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/demochart
         git config --global user.email "jayabharathissy@gmail.com"
