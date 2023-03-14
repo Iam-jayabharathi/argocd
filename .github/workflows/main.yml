@@ -41,7 +41,7 @@ jobs:
         git config --global user.name "Iam-jayabharathi"
         TAG=$(cat ./argocd/demochart/demochart/values.yaml |  grep tag: | awk '{print $2}')
         sed -i 's/$TAG/$IMAGE_TAG/' ./argocd/demochart/demochart/values.yaml
-        git add .
+        git add ./argocd/demochart/demochart/values.yaml
         git commit -m "Docker image tag updated for noc.aximsoft.com - $IMAGE_TAG "
         
         
@@ -51,3 +51,4 @@ jobs:
         github_token: ${{ secrets.mygit_token }}
         repository: iam-jayabharathi/argocd 
         branch: master
+        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work//argocd/demochart/demochart/values.yaml
