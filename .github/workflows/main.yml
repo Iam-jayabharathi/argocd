@@ -49,6 +49,6 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.MYGIT_TOKEN }}
-        repository: iam-jayabharathi/argocd 
+        repository: iam-jayabharathi/helm-repo
         branch: master
         directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo
