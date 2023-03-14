@@ -36,7 +36,7 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/demochart
+        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/argocd
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
         TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')
@@ -51,4 +51,4 @@ jobs:
         github_token: ${{ secrets.MYGIT_TOKEN }}
         repository: iam-jayabharathi/argocd 
         branch: master
-        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/demochart
+        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/argocd
