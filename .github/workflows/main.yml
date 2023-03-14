@@ -51,4 +51,4 @@ jobs:
         github_token: ${{ secrets.MYGIT_TOKEN }}
         repository: iam-jayabharathi/argocd 
         branch: master
-        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/demochart
+        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd
