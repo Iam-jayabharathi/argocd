@@ -40,7 +40,7 @@ jobs:
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
         TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')
-        sed -i "s/$TAG/$IMAGE_TAG/" ./demochart/values.yaml
+        sed -i 's/$TAG/$IMAGE_TAG/' ./demochart/values.yaml
         git add ./demochart/values.yaml
         git commit -m "Docker image tag updated for noc.aximsoft.com - $IMAGE_TAG "
         
