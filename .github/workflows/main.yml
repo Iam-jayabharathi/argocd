@@ -17,7 +17,7 @@ jobs:
         aws-region: us-east-1
     
     - name: Build the Docker image 
-      uses: actions/checkout@v1 
+      uses: actions/checkout@v2 
       with: 
         repository: iam-jayabharathi/helm-repo
         token: ${{ secrets.MYGIT_TOKEN }} 
@@ -34,14 +34,17 @@ jobs:
         ECR_REPOSITORY: argocd-test
         IMAGE_TAG: ${{ github.sha }}  
       run: |
+        pwd
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo
+        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo                      
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
-        TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')
-        sed -i 's/$TAG/$IMAGE_TAG/' ./demochart/values.yaml
+        TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')                
+        sed -i "s/$TAG/$IMAGE_TAG/" ./demochart/values.yaml        
+        git status
         git add ./demochart/values.yaml
+        git status
         git commit -m "Docker image tag updated for noc.aximsoft.com - $IMAGE_TAG "
         
         
@@ -49,6 +52,6 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.MYGIT_TOKEN }}
-        repository: iam-jayabharathi/argocd 
+        repository: iam-jayabharathi/helm-repo
         branch: master
         directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo
