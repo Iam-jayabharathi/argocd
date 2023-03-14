@@ -19,9 +19,9 @@ jobs:
     - name: Build the Docker image 
       uses: actions/checkout@v1 
       with: 
-        repository: iam-jayabharathi/argocd 
+        repository: iam-jayabharathi/helm-repo
         token: ${{ secrets.MYGIT_TOKEN }} 
-        path: argocd
+        path: helm-repo
         ref: master
         
     - name: Login to Amazon ECR
@@ -36,7 +36,7 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/argocd
+        cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo
         git config --global user.email "jayabharathissy@gmail.com"
         git config --global user.name "Iam-jayabharathi"
         TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')
@@ -51,4 +51,4 @@ jobs:
         github_token: ${{ secrets.MYGIT_TOKEN }}
         repository: iam-jayabharathi/argocd 
         branch: master
-        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/argocd
+        directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo
