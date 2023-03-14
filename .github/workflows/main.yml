@@ -44,7 +44,7 @@ jobs:
         TAG=$(cat ./demochart/values.yaml |  grep tag: | awk '{print $2}')
         echo $TAG
         echo $IMAGE_TAG
-        sed -i "s/$TAG/$IMAGE_TAG/" ./demochart/values.yaml
+        sed -ie "s/$TAG/$IMAGE_TAG/" ./demochart/values.yaml
         git status
         git add ./demochart/values.yaml
         git status
