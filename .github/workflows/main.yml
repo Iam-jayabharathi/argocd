@@ -21,7 +21,7 @@ jobs:
       with: 
         repository: iam-jayabharathi/argocd 
         token: ${{ secrets.MYGIT_TOKEN }} 
-        path: demochart
+        path: argocd
         ref: master
         
     - name: Login to Amazon ECR
@@ -50,5 +50,5 @@ jobs:
       with:
         github_token: ${{ secrets.MYGIT_TOKEN }}
         repository: iam-jayabharathi/argocd 
-        branch: dev
+        branch: master
         directory: /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/demochart
