@@ -34,6 +34,7 @@ jobs:
         ECR_REPOSITORY: argocd-test
         IMAGE_TAG: ${{ github.sha }}  
       run: |
+        pwd
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         cd /home/aximsoft/aximsoft/minikube/actions-runner/_work/argocd/helm-repo                      
